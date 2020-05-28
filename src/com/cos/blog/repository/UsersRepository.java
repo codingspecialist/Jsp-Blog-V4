@@ -24,13 +24,17 @@ public class UsersRepository {
 	private ResultSet rs = null;
 	
 	public int save(Users user) {
-		final String SQL = "";
+		final String SQL = "INSERT INTO users(id, username, password, email, address, userRole, createDate) VALUES(USERS_SEQ.nextval, ?,?,?,?,?,sysdate)";
 		
 		try {
 			conn = DBConn.getConnection();
 			pstmt = conn.prepareStatement(SQL);
 			// 물음표 완성하기
-			
+			pstmt.setString(1, user.getUsername());
+			pstmt.setString(2, user.getPassword());
+			pstmt.setString(3, user.getEmail());
+			pstmt.setString(4, user.getAddress());
+			pstmt.setString(5, user.getUserRole());
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
