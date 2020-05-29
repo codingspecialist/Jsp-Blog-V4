@@ -8,9 +8,10 @@ import javax.servlet.http.HttpServletResponse;
 public class Script {
 	public static void back(String msg, HttpServletResponse response) {
 		try {
-			PrintWriter out = response.getWriter();
 			response.setCharacterEncoding("utf-8");
-			response.setContentType("text/html; charset=utf-8"); 
+			response.setContentType("text/html; charset=utf-8");
+			PrintWriter out = response.getWriter();
+			 
 			out.println("<script>");
 			out.println("alert('"+msg+"');");
 			out.println("history.back();");
