@@ -34,7 +34,7 @@
 	    <div class="invalid-feedback">Please fill out this field.</div>
 	  </div>
 
-	  <button type="submit" class="btn btn-primary">Submit</button>
+	  <button type="submit" class="btn btn-primary">회원가입완료</button>
 	</form>
 </div>
 
