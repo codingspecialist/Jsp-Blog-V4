@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<%@ include file="../include/nav.jsp" %>
+<%@ include file="../include/nav.jsp" %> 
 
 <div class="container">
 	<form action="/blog/user?cmd=joinProc" method="POST" class="was-validated">
