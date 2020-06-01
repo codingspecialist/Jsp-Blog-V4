@@ -36,7 +36,6 @@ public class BoardController extends HttpServlet {
 		Action action = router(cmd);
 		action.execute(request, response);
 	}
-	
 	public Action router(String cmd) {
 		if(cmd.equals("home")) {
 			// 회원가입 페이지로 이동

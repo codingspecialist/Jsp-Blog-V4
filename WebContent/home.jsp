@@ -1,18 +1,9 @@
+<%@page import="java.io.PrintWriter"%>
 <%@page import="com.cos.blog.model.Users"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
 <%@ include file="include/nav.jsp" %>
-
-<%
-	Users principal = (Users)session.getAttribute("principal");
-%>
-
-<h1>
-	<% if(principal != null) { %>
-		<%= principal.getUsername() %>
-	<% } %>
-</h1>
 
 <div class="container">
 

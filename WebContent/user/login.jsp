@@ -3,13 +3,21 @@
 
 <%@ include file="../include/nav.jsp" %>
 
+<%
+	String remember = (String) request.getAttribute("remember");
+
+	if(remember == null){
+		remember = "";
+	}
+%>
+
 <div class="container">
 	
 	<form action="/blog/user?cmd=loginProc" method="POST" class="was-validated">
 	  
 	  <div class="form-group">
 	    <label for="username">Username:</label>
-	    <input type="text" class="form-control" id="username" placeholder="Enter username" name="username" required>
+	    <input type="text" value="<%=remember %>" class="form-control" id="username" placeholder="Enter username" name="username" required>
 	    <div class="valid-feedback">Valid.</div>
 	    <div class="invalid-feedback">Please fill out this field.</div>
 	  </div>
