@@ -3,14 +3,6 @@
 
 <%@ include file="../include/nav.jsp" %>
 
-<%
-/* 	String remember = (String) request.getAttribute("remember");
-
-	if(remember == null){
-		remember = "";
-	} */
-%>
-
 <div class="container">
 	
 	<form action="/blog/user?cmd=loginProc" method="POST" class="was-validated">
