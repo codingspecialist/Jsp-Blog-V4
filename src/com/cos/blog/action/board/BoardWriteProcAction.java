@@ -21,17 +21,17 @@ public class BoardWriteProcAction implements Action{
 		HttpSession session = request.getSession();
 		if(session.getAttribute("principal") == null) {
 			Script.getMessage("잘못된 접근입니다.", response);
-			return;
+			return; //여기서 return이 었으면 코드를 아래를 타고 내려간다.
 		}
 		Users principal = (Users)session.getAttribute("principal");
 		
 		// 1번 request에 title값과 content값 null인지 공백인지확인
 		if
 		(
-				request.getParameter("title") == null ||
-				request.getParameter("title").equals("") ||
-				request.getParameter("content") == null ||
-				request.getParameter("content").equals("")
+			request.getParameter("title") == null ||
+			request.getParameter("title").equals("") ||
+			request.getParameter("content") == null ||
+			request.getParameter("content").equals("")
 				
 		) {
 			return;
@@ -56,9 +56,7 @@ public class BoardWriteProcAction implements Action{
 		// 5번 result == 1이면 성공로직(index.jsp로 이동)
 		// 6번 result != 1이면 실패로직(history.back())
 		if(result == 1) {
-			RequestDispatcher dis = 
-					request.getRequestDispatcher("index.jsp");
-			dis.forward(request, response);
+			Script.href("글쓰기 성공", "index.jsp", response);
 		}else {
 			Script.back("글쓰기에 실패하였습니다.", response);
 		}
