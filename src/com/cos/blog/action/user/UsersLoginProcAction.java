@@ -20,10 +20,11 @@ public class UsersLoginProcAction implements Action{
 		// 0. 유효성 검사
 		if
 		(
-				request.getParameter("username").equals("") ||
 				request.getParameter("username") == null ||
-				request.getParameter("password").equals("") ||
-				request.getParameter("password") == null
+				request.getParameter("username").equals("") ||
+				request.getParameter("password") == null ||
+				request.getParameter("password").equals("")
+				
 		) {
 			return;
 		}
@@ -37,6 +38,7 @@ public class UsersLoginProcAction implements Action{
 		if(user != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("principal", user);
+			
 			
 			if(request.getParameter("remember") != null) {
 				// key => Set-Cookie
