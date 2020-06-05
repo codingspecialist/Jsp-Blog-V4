@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config xmlns="http://www.navercorp.com/lucy-xss-servlet">
+    <defenders>
+        <!-- XssPreventer 등록 -->
+        <defender>
+            <name>xssPreventerDefender</name>
+            <class>com.navercorp.lucy.security.xss.servletfilter.defender.XssPreventerDefender</class>
+        </defender>
+    </defenders>
+
+    <!-- default defender 선언, 필터링 시 지정한 defender가 없으면 여기 정의된 default defender를 사용해 필터링 한다. -->
+    <default>
+        <defender>xssPreventerDefender</defender>
+    </default>
+
+    <!-- global 필터링 룰 선언 -->
+    <global>
+        <params>
+            <param name="title" useDefender="true" />
+        </params>
+    </global>
+ 
+</config>
