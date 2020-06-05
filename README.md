@@ -9,7 +9,6 @@ GRANT CREATE SESSION TO cos;
 GRANT CREATE TABLESPACE TO cos;
 GRANT CREATE TABLE TO cos;
 GRANT CREATE SEQUENCE TO cos;
-GRANT select, insert, delete, update ON cos.player TO cos;
 alter user cos default tablespace users quota unlimited on users;
 ```
 
