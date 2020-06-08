@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.cos.blog.action.Action;
 import com.cos.blog.dto.DetailResponseDto;
+import com.cos.blog.model.Board;
 import com.cos.blog.repository.BoardRepository;
+import com.cos.blog.util.HtmlParser;
 import com.cos.blog.util.Script;
 
 public class BoardDetailAction implements Action {
@@ -30,6 +32,11 @@ public class BoardDetailAction implements Action {
 				boardRepository.findById(id);
 		
 		if(dto != null) {
+			// 유튜브 파싱하기
+			String content = dto.getBoard().getContent();
+			content = HtmlParser.getContentYoutube(content);
+			dto.getBoard().setContent(content);
+			
 			request.setAttribute("dto", dto);
 			RequestDispatcher dis = 
 					request.getRequestDispatcher("board/detail.jsp");
