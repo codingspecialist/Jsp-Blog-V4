@@ -23,10 +23,10 @@ public class BoardHomeAction implements Action{
 		List<Board> boards = boardRepository.findAll();
 
 		// 본문 짧게 가공하기
-//		for (Board board : boards) {
-//			String preview = HtmlParser.getContentPreview(board.getContent());
-//			board.setContent(preview);
-//		}
+		for (Board board : boards) {
+			String preview = HtmlParser.getContentPreview(board.getContent());
+			board.setContent(preview);
+		}
 	
 		request.setAttribute("boards", boards);
 		
