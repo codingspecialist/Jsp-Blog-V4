@@ -50,7 +50,7 @@
         <element name="hr"/>
         <element name="html"/>
         <element name="i"/>
-        <element name="iframe"/>
+        <!-- <element name="iframe"/> -->
         <element name="img"/>
         <element name="input"/>
         <element name="ins"/>

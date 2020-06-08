@@ -30,6 +30,7 @@
 	<!-- global 필터링 룰 선언 -->
 	<global>
 		<params>
+			<param name="title" useDefender="true" />
 			<param name="content" useDefender="false" />
 		</params>
 	</global>

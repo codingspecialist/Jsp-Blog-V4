@@ -36,8 +36,7 @@ public class BoardDeleteAction implements Action{
 		BoardRepository boardRepository = 
 				BoardRepository.getInstance();
 		int result = boardRepository.deleteById(id);
-		System.out.println("BoardDeleteAction : result : "+result);
-		PrintWriter out = response.getWriter();
-		out.print(result);
+		
+		Script.outText(result+"", response);
 	}
 }
