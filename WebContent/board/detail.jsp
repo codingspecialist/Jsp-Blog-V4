@@ -8,7 +8,7 @@
 	
 	<c:if test="${sessionScope.principal.id == dto.board.userId}">
 		<a href="/blog/board?cmd=update&id=${dto.board.id}" class="btn btn-warning">수정</a>
-		<button class="btn btn-danger">삭제</button>
+		<button class="btn btn-danger" onclick="deleteById(${dto.board.id})">삭제</button>
 	</c:if>
 	
 	<br/><br/>
@@ -21,4 +21,32 @@
 	</div>
 </div>
 
+<script>
+	function deleteById(boardId){
+
+		$.ajax({
+			type: "POST",
+			url: "/blog/board?cmd=delete&id="+boardId,
+			dataType: "text"
+		}).done(function(result){
+			console.log(result);
+			if(result == 1){
+				alert("삭제 성공");
+				location.href="/blog/index.jsp";
+			}else{
+				alert("삭제 실패");
+			}
+		}).fail(function(error){
+			console.log(error);
+			console.log(error.responseText);
+			console.log(error.status);
+			alert("서버 오류");
+		});
+	}
+</script>
+
 <%@ include file="../include/footer.jsp"%>
+
+
+
+
