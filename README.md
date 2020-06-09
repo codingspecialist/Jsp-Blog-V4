@@ -1,5 +1,7 @@
 #### Jsp 모델2 블로그 프로젝트
 
+![blog](https://blogfiles.pstatic.net/MjAyMDA2MDlfMTI4/MDAxNTkxNjkxMTQ0OTc1.ZudQ-BusaNf8ZMhcNaOF7h0mgvE3omcEvsQAMgs3d5sg.zL0kT_Qc0oLLe2jlPi1BmOFlpTJU1cLCevEeHlBPLpcg.PNG.getinthere/Screenshot_19.png)
+
 ## 오라클 12C 사용자 생성
 ```sql
 alter session set "_ORACLE_SCRIPT"=true;  
