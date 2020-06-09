@@ -28,6 +28,14 @@ public class BoardDetailAction implements Action {
 		int id = Integer.parseInt(request.getParameter("id"));
 		BoardRepository boardRepository = 
 				BoardRepository.getInstance();
+		
+		//조회수 증가가 상세보기가 되기 전에 실행되는 것이 좋음
+		int result = boardRepository.updateReadCount(id);
+		
+		if(result != 1) {
+			Script.back("서버 오류!", response);
+			return;
+		}
 		DetailResponseDto dto = 
 				boardRepository.findById(id);
 		

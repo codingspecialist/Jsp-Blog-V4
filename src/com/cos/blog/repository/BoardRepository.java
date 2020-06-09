@@ -24,6 +24,27 @@ public class BoardRepository {
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
 	
+	public int updateReadCount(int id) {
+		final String SQL 
+		= "UPDATE board SET readCount = readCount + 1 WHERE id = ?";
+		
+		try {
+			conn = DBConn.getConnection();
+			pstmt = conn.prepareStatement(SQL);
+			// 물음표 완성하기
+
+			pstmt.setInt(1, id);
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(TAG+"updateReadCount : "+e.getMessage());
+		} finally {
+			DBConn.close(conn, pstmt);
+		}
+
+		return -1;
+	}
+	
 	public int save(Board board) {
 		final String SQL = "INSERT INTO board(id, userId, title, content, readCount, createDate) VALUES(board_seq.nextval, ?, ?, ?, ?, sysdate)";
 		

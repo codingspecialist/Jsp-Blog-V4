@@ -12,7 +12,7 @@
 	</c:if>
 	
 	<br/><br/>
-	<h6>작성자 : <i>${dto.username}</i></h6>
+	<h6>작성자 : <i>${dto.username}</i> 조회수 : <i>${dto.board.readCount}</i></h6>
 	<br/>
 	<h3><b>${dto.board.title}</b></h3>
 
