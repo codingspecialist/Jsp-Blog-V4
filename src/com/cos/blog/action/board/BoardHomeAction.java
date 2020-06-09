@@ -33,6 +33,12 @@ public class BoardHomeAction implements Action{
 		}
 	
 		request.setAttribute("boards", boards);
+	
+		// 마지막페이지 확인 로직
+		boolean isLast = false;
+		int count = boardRepository.count();
+		if(count <= (page*3)+3) isLast = true;
+		request.setAttribute("isLast", isLast);
 		
 		RequestDispatcher dis = 
 				request.getRequestDispatcher("home.jsp");
