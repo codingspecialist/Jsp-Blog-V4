@@ -48,6 +48,7 @@ public class UsersUpdateProcAction implements Action{
 				.email(email)
 				.address(address)
 				.build();
+		
 		UsersRepository usersRepository = UsersRepository.getInstance();
 		int result = usersRepository.update(user);
 		

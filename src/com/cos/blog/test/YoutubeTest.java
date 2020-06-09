@@ -9,6 +9,20 @@ import org.junit.Test;
 public class YoutubeTest {
 	
 	@Test
+	public void targetTest() {
+		String content = "<p><a href=\"https://www.youtube.com/watch?v=LHWYSE85a6U\" target=\"_blank\">https://www.youtube.com/watch?v=LHWYSE85a6U</a><a href=\"https://www.youtube.com/watch?v=LHWYSE85a6U\"></a></p><p><a href=\\\"https://www.youtube.com/watch?v=LHWYSE85a6U\\\" target=\\\"_blank\\\">https://www.youtube.com/watch?v=LHWYSE85a6U</a><a href=\\\"https://www.youtube.com/watch?v=LHWYSE85a6U\\\"></a></p>";
+		Document doc = Jsoup.parse(content);
+		
+		Elements els = doc.select("a");
+		// System.out.println(els.get(0));
+		for (Element el : els) {
+			String target = el.attr("target");
+			System.out.println(target);
+		}
+		
+		
+	}
+
 	public void preview() {
 		String content = "<a href=\"https://youtu.be/TgOu00Mf3kI\">\r\n" + 
 				"https://youtu.be/TgOu00Mf3kI\r\n" + 

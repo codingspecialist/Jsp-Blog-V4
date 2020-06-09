@@ -9,24 +9,27 @@ public class HtmlParser {
 	
 	public static String getContentYoutube(String content) {
 		Document doc = Jsoup.parse(content);
+		System.out.println(doc.toString());
 		Elements aTags = doc.select("a");
 		// https://youtu.be/TgOu00Mf3kI
 		// https://www.youtube.com/watch?v=yqtCGojXEpM
 		for (Element aTag : aTags) {
 			String href = aTag.attr("href");
 			String youtubeId = null;
-			if(href != null) {
+			System.out.println(href);
+			if(href != null && !aTag.attr("target").equals("_blank")) {
 				if(href.contains("https://youtu.be")) {
 					String[] hrefArr = href.split("/");
 					youtubeId = hrefArr[3];
 				}else if(href.contains("https://www.youtube.com")){
+					System.out.println("이쪽 3번?");
 					String[] hrefArr = href.split("=");
 					youtubeId = hrefArr[1];
 				}
 				
-				System.out.println("JSOUP 파싱 : Youtube : "+youtubeId);
+				//System.out.println("JSOUP 파싱 : Youtube : "+youtubeId);
 				String video = "<br/><iframe src='http://www.youtube.com/embed/"+youtubeId+"' width='400px' height='400px' frameborder='0' allowfullscreen></iframe>";
-				System.out.println("video : "+video);
+				//System.out.println("video : "+video);
 				aTag.after(video);
 			}
 		}
