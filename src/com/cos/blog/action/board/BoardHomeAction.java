@@ -35,11 +35,12 @@ public class BoardHomeAction implements Action{
 		request.setAttribute("boards", boards);
 	
 		// 마지막페이지 확인 로직
-		boolean isLast = false;
 		int count = boardRepository.count();
-		if(count <= (page*3)+3) isLast = true;
-		request.setAttribute("isLast", isLast);
+		int lastPage = (count-1)/3; 
+		double currentPercent = (double)(page)/(lastPage)*100;
 		
+		request.setAttribute("lastPage", lastPage);
+		request.setAttribute("currentPercent", currentPercent);
 		RequestDispatcher dis = 
 				request.getRequestDispatcher("home.jsp");
 		dis.forward(request, response);
