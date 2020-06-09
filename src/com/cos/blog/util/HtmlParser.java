@@ -22,7 +22,6 @@ public class HtmlParser {
 					String[] hrefArr = href.split("/");
 					youtubeId = hrefArr[3];
 				}else if(href.contains("https://www.youtube.com")){
-					System.out.println("이쪽 3번?");
 					String[] hrefArr = href.split("=");
 					youtubeId = hrefArr[1];
 				}
