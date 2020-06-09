@@ -17,10 +17,14 @@ public class BoardHomeAction implements Action{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int page = Integer.parseInt(request.getParameter("page"));
+		
 		// 1. DB연결해서 Board 목록 다 불러와서
 		BoardRepository boardRepository = 
 				BoardRepository.getInstance();
-		List<Board> boards = boardRepository.findAll();
+		
+		// 2. 3건만 페이징하여 가져오기
+		List<Board> boards = boardRepository.findAll(page);
 
 		// 본문 짧게 가공하기
 		for (Board board : boards) {
