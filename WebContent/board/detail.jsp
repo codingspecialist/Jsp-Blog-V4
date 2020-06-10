@@ -4,7 +4,8 @@
 <%@ include file="../include/nav.jsp"%>
 
 <div class="container">
-	<button class="btn btn-secondary" onclick="history.back()">뒤로가기</button>
+	<%@ include file="../include/goBack.jsp"%>
+	
 
 	<c:if test="${sessionScope.principal.id == dto.board.userId}">
 		<a href="/blog/board?cmd=update&id=${dto.board.id}" class="btn btn-warning">수정</a>
@@ -26,6 +27,7 @@
 	</div>
 
 	<hr />
+	
 	<!-- 댓글 박스 -->
 	<div class="row bootstrap snippets">
 		<div class="col-md-12">

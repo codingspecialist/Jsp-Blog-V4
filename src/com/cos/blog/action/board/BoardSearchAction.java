@@ -7,6 +7,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.cos.blog.action.Action;
 import com.cos.blog.model.Board;
@@ -52,6 +53,12 @@ public class BoardSearchAction implements Action{
 		
 		request.setAttribute("lastPage", lastPage);
 		request.setAttribute("currentPercent", currentPercent);
+		
+		// 이전 페이지 정보
+		HttpSession session = request.getSession();
+		session.setAttribute("backPage", page);
+		session.setAttribute("backKeyword", keyword);
+		
 		RequestDispatcher dis = 
 				request.getRequestDispatcher("home.jsp");
 		dis.forward(request, response);
