@@ -15,6 +15,8 @@
 
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+<link href="/blog/css/styles.css" rel="stylesheet">
 </head>
 <body>
 
@@ -42,5 +44,3 @@
 		</div>
 	</nav>
 	<br>
-	
-	

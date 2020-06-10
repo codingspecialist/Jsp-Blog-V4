@@ -1,0 +1,17 @@
+.comment-wrapper .media-list {
+	max-height: 450px;
+	overflow: auto;
+}
+
+.comment-wrapper .media-list .media img {
+	width: 64px;
+	height: 64px;
+	border: 2px solid #e5e7e8;
+	border-radius: 30px;
+	margin-right: 25px;
+}
+
+.comment-wrapper .media-list .media {
+	border-bottom: 1px dashed #efefef;
+	margin-bottom: 25px;
+}
