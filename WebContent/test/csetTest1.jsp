@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<c:set property="pageAddr" value="/blog/board?cmd=home&page=${param.page+1}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<h1>클릭하세요</h1>
+<a href="csetTest2.jsp?page=0">일반 페이징하기</a> <br/>
+<a href="csetTest2.jsp?page=0&keyword=안녕">검색 페이징하기</a> <br/>
 </body>
 </html>
 
