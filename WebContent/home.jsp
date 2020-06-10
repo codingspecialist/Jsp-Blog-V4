@@ -5,18 +5,19 @@
 <%@ include file="include/nav.jsp"%>
 
 <div class="container">
+
 	<div class="col-md-12 m-2">
-		<form class="form-inline justify-content-end" action="/blog/board?cmd=search">
-			<input class="form-control mr-sm-2" type="text" placeholder="Search">
-			<button class="btn btn-primary" type="submit">검색</button>
+		<form class="form-inline justify-content-end" action="/blog/board">
+			<input type="hidden" name="cmd" value="search" />
+			<input type="hidden" name="page" value="0" />
+			<input type="text" name="keyword" class="form-control mr-sm-2" placeholder="Search">			
+			<button class="btn btn-primary">검색</button>
 		</form>
 	</div>
 
 	<div class="progress col-md-12 m-2">
 		<div class="progress-bar" style="width: ${currentPercent}%"></div>
 	</div>
-
-
 
 	<c:forEach var="board" items="${boards}">
 		<div class="card col-md-12 m-2">

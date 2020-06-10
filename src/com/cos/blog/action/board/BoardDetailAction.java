@@ -4,12 +4,12 @@ import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.cos.blog.action.Action;
 import com.cos.blog.dto.DetailResponseDto;
-import com.cos.blog.model.Board;
 import com.cos.blog.repository.BoardRepository;
 import com.cos.blog.util.HtmlParser;
 import com.cos.blog.util.Script;
