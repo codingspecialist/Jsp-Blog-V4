@@ -11,12 +11,14 @@
 <body>
 <c:choose>
 	<c:when test="${empty param.keyword}">
-		<c:set var="pageAddr" value="/blog/board?cmd=home&page=${param.page+1}"/>	
+		<c:set var="pageAddr" 
+		value="/blog/board?cmd=home&page=${param.page+1}"/>	
 	</c:when>
 	<c:otherwise>
-		<c:set var="pageAddr" value="/blog/board?cmd=search&page=${param.page+1}&keyword=${param.keyword}"/>
+		<c:set var="pageAddr" 
+		value="/blog/board?cmd=search&page=${param.page+1}&keyword=${param.keyword}"/>
 	</c:otherwise>
-</c:choose>
+</c:choose> 
 <h1>만들어진 변수 확인</h1>
 <hr/>
 <h3><c:out value="${pageScope.pageAddr}" /></h3>

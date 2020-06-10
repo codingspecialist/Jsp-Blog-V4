@@ -31,26 +31,7 @@
 
 	<br />
 
-	<!-- disabled -->
-	<ul class="pagination justify-content-center">
-		<c:choose>
-			<c:when test="${param.page == 0}">
-				<li class="page-item disabled"><a class="page-link" href="/blog/board?cmd=home&page=${param.page-1}">Previous</a></li>
-			</c:when>
-			<c:otherwise>
-				<li class="page-item"><a class="page-link" href="/blog/board?cmd=home&page=${param.page-1}">Previous</a></li>
-			</c:otherwise>
-		</c:choose>
-		<c:choose>
-			<c:when test="${lastPage == param.page}">
-				<li class="page-item disabled"><a class="page-link" href="/blog/board?cmd=home&page=${param.page+1}">Next</a></li>
-			</c:when>
-			<c:otherwise>
-				<li class="page-item"><a class="page-link" href="/blog/board?cmd=home&page=${param.page+1}">Next</a></li>
-			</c:otherwise>
-		</c:choose>
-
-	</ul>
+	<%@ include file="include/paging.jsp"%>
 
 </div>
 
