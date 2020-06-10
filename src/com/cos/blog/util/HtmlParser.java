@@ -43,10 +43,11 @@ public class HtmlParser {
 		for (Element pTag : pTags) {
 			String text = pTag.text();
 			if(text.length() > 0) {
+				text = text.replaceAll("<", "&lt;").replaceAll(">", "&gt;");
 				if(text.length() < 11) {
-					return pTag.text();
+					return text;
 				}else {
-					return pTag.text().substring(0, 10)+"...";
+					return text.substring(0, 10)+"...";
 				}	
 			}
 		}
