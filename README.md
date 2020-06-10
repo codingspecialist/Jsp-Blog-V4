@@ -73,6 +73,8 @@ OFFSET 0 ROWS FETCH NEXT 3 ROWS ONLY;
 
 ## 상세보기 댓글 디자인
 
+![blog](https://postfiles.pstatic.net/MjAyMDA2MTBfMjMw/MDAxNTkxNzcwMTQxMjA0.StpHO77_G9wEHPNxcrVG6VFPX1-GotrDxxIHjJSptWkg.HREIBlxtojTJZqd65Oa46lbpC-1q99pEgYuOlYWOnXAg.PNG.getinthere/Screenshot_24.png?type=w773)
+
 - css/styles.css
 ```css
 .comment-wrapper .media-list {
