@@ -25,13 +25,15 @@ public class ReplyRepository {
 	private ResultSet rs = null;
 	
 	public int save(Reply reply) {
-		final String SQL = "";
+		final String SQL = "INSERT INTO reply(id, boardId, userId, content, createDate) VALUES(reply_seq.nextval, ?, ?, ?, sysdate)";
 		
 		try {
 			conn = DBConn.getConnection();
 			pstmt = conn.prepareStatement(SQL);
 			// 물음표 완성하기
-			
+			pstmt.setInt(1, reply.getBoardId());
+			pstmt.setInt(2, reply.getUserId());
+			pstmt.setString(3, reply.getContent());
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -86,7 +88,8 @@ public class ReplyRepository {
 		sb.append("u.username, u.userProfile ");
 		sb.append("FROM reply r INNER JOIN users u ");
 		sb.append("ON r.userId = u.id ");
-		sb.append("WHERE boardId = ?");
+		sb.append("WHERE boardId = ? ");
+		sb.append("ORDER BY r.id DESC");
 		final String SQL = sb.toString();
 		List<ReplyResponseDto> replyDtos = new ArrayList<>();
 		
