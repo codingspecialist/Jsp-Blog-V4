@@ -2,6 +2,8 @@ package com.cos.blog.model;
 
 import java.sql.Timestamp;
 
+import com.nhncorp.lucy.security.xss.XssPreventer;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,4 +19,8 @@ public class Reply {
 	private int boardId;
 	private String content;
 	private Timestamp createDate;
+	
+	public String getContent() {
+		return XssPreventer.escape(content);
+	}
 }
