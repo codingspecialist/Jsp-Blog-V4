@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.cos.blog.db.DBConn;
+import com.cos.blog.dto.BoardResponseDto;
 import com.cos.blog.dto.DetailResponseDto;
 import com.cos.blog.model.Board;
 
@@ -265,14 +266,14 @@ public class BoardRepository {
 		return null;
 	}
 	
-	public DetailResponseDto findById(int id) {
+	public BoardResponseDto findById(int id) {
 		StringBuilder sb = new StringBuilder();
 		sb.append("SELECT b.id, b.userId, b.title, b.content, b.readCount, b.createDate, u.username ");
 		sb.append("FROM board b INNER JOIN users u ");
 		sb.append("ON b.userId = u.id ");
 		sb.append("WHERE b.id = ?");
 		final String SQL = sb.toString();
-		DetailResponseDto dto = null;
+		BoardResponseDto boardDto = null;
 		
 		try {
 			conn = DBConn.getConnection();
@@ -282,7 +283,7 @@ public class BoardRepository {
 			// if 돌려서 rs -> java오브젝트에 집어넣기
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
-				dto = new DetailResponseDto();
+				boardDto = new BoardResponseDto();
 				Board board = Board.builder()
 						.id(rs.getInt(1))
 						.userId(rs.getInt(2))
@@ -291,11 +292,11 @@ public class BoardRepository {
 						.readCount(rs.getInt(5))
 						.createDate(rs.getTimestamp(6))
 						.build();
-				dto.setBoard(board);
-				dto.setUsername(rs.getString(7));
+				boardDto.setBoard(board);
+				boardDto.setUsername(rs.getString(7));
 				
 			}
-			return dto;
+			return boardDto;
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println(TAG+"findById : "+e.getMessage());

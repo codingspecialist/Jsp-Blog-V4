@@ -14,5 +14,7 @@ $("#img__preview").on("change", function(e) {
 		$("#img__wrap").attr("src", e.target.result);
 	};
 
-	reader.readAsDataURL(f); // 파일 읽기 (비동기 실행)
+	// 바구니 채워 놓는 시간이 2초
+	reader.readAsDataURL(f); // 파일 읽기 (비동기 실행)	
+
 });

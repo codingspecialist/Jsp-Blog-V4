@@ -1,8 +1,6 @@
 package com.cos.blog.dto;
 
-import java.util.List;
-
-import com.cos.blog.model.Board;
+import com.cos.blog.model.Reply;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,8 +11,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class DetailResponseDto {
-	
-	private BoardResponseDto boardDto;
-	private List<ReplyResponseDto> replyDtos;
+public class ReplyResponseDto {
+	private Reply reply;
+	private String username;
+	private String userProfile;
 }
