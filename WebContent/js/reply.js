@@ -1,4 +1,30 @@
+function replyDelete(replyId){
+	
+	$.ajax({
+		type: "post",
+		url: "/blog/reply?cmd=deleteProc",
+		data: "replyId="+replyId,
+		contentType: "application/x-www-form-urlencoded; charset=utf-8",
+		dataType: "text"
+	}).done(function(result){
+		if(result == "1"){
+			alert("댓글 삭제 성공");
+			var replyItem = $("#reply-"+replyId);
+			replyItem.remove();
+		}else{
+			alert("댓글 삭제 실패");
+		}
+	}).fail(function(error){
+		alert("댓글 삭제 실패");
+	});
+}
+
 function replyWrite(boardId, userId){
+	if(userId === undefined){
+		alert("로그인이 필요합니다.");
+		return;
+	}
+	
 	var data = {
 		boardId: boardId,
 		userId: userId,
