@@ -56,7 +56,7 @@
 									</div>
 									<div class="m-2">
 										<c:if test="${replyDto.reply.userId eq sessionScope.principal.id}">
-											<i onclick="replyDelete(${replyDto.reply.id})" " class="material-icons i__btn">delete</i>
+											<i onclick="replyDelete(${replyDto.reply.id})" class="material-icons i__btn">delete</i>
 										</c:if>
 									</div>
 								</li>
