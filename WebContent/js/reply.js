@@ -44,7 +44,7 @@ function replyWrite(boardId, userId){
 			alert("댓글 작성 성공");
 			$("#reply__list").empty();
 			console.log(result);
-			renderReplyList(result);
+			renderReplyList(result, userId);
 			$("#reply__write__form").val("");
 		}
 	}).fail(function(error){
@@ -52,13 +52,13 @@ function replyWrite(boardId, userId){
 	});
 }
 
-function renderReplyList(replyDtos){
+function renderReplyList(replyDtos, userId){
 	for(var replyDto of replyDtos){
-		$("#reply__list").append(makeReplyItem(replyDto));
+		$("#reply__list").append(makeReplyItem(replyDto, userId));
 	}
 }
 
-function makeReplyItem(replyDto){
+function makeReplyItem(replyDto, userId){
 	// reply-id 추가 시작
 	var replyItem = `<li id="reply-${replyDto.reply.id}" class="media">`;
 	// reply-id 추가 끝
@@ -74,7 +74,9 @@ function makeReplyItem(replyDto){
 	replyItem += `</div>`;
 	// 휴지통 추가 시작
 	replyItem += `<div class="m-2">`;
-	replyItem += `<i onclick="replyDelete(${replyDto.reply.id})" class="material-icons i__btn">delete</i>`;
+	if(replyDto.reply.userId == userId){
+		replyItem += `<i onclick="replyDelete(${replyDto.reply.id})" class="material-icons i__btn">delete</i>`;
+	}
 	replyItem += `</div>`;
 	// 휴지통 추가 끝
 	replyItem += `</li>`;
