@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import com.cos.blog.action.Action;
 import com.cos.blog.action.kakao.KakaoCallbackAction;
+import com.cos.blog.action.kakao.KakaoJoinProcAction;
 
 // http://localhost:8000/blog/oauth/kakao
 @WebServlet("/oauth/kakao")
@@ -42,6 +43,8 @@ public class KakaoController extends HttpServlet {
 	public Action router(String cmd) {
 		if(cmd.equals("callback")) {
 			return new KakaoCallbackAction(); //Board의 목록
+		}else if(cmd.equals("joinProc")) {
+			return new KakaoJoinProcAction();
 		}
 		return null;
 	}
